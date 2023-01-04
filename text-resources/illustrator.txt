@@ -1,0 +1,7 @@
+v: selection tool
+S: scale tool
+R: rotate tool
+A: direct selection tool (to select anchor points)
+Hold shift to retain scale/snap rotate/(de)select anchor point
+Anchors with (A) to select handles (the long line thing)
+

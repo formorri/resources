@@ -1,0 +1,210 @@
+Useful Atom https://github.com/nwinkler/atom-keyboard-shortcuts
+Colour selector https://colorhunt.co/
+Create a favicon https://www.favicon.cc/
+Box model https://markusvogl.com/web1/interactive_box_model/css_box_demo.html
+Google Fonts https://fonts.google.com/
+Free Icons https://www.flaticon.com/
+Generate button https://css3buttongenerator.com/
+Website inspo https://www.awwwards.com/websites/com/
+Website inspo 2 https://dribbble.com/search/website
+UI inspo https://collectui.com/
+Learn design pattern http://ui-patterns.com/patterns
+Front End Challenges https://www.frontendmentor.io/challenges
+UI Challenges https://www.dailyui.co/
+Javascript best practice https://github.com/rwaldron/idiomatic.js
+cmd https://www.learnenough.com/command-line-tutorial
+Reduce file size without losing res https://squoosh.app/
+Find fonts 
+1. https://www.fontsinthewild.com/
+2. https://fontsinuse.com/
+Adapt fonts for all browsers https://transfonter.org/
+Gradient generator https://angrytools.com/gradient/
+Animations https://animista.net/
+3D source https://sketchfab.com/
+https://cloudconvert.com/mp4-to-webm Webm converter
+
+
+cmd 
+pwd (print working directory): print where we are
+cd (change directory)
+ls (list)
+ls -a (list include hidden file)
+mkdir: make new directory
+touch: make new file
+REPL (Read Evaluate Print Loop): execute code in bite size chunks
+	1. Start with "node index.js"
+	2. Included in node
+Exit code "ctrl c"
+clear console: "clear"
+arrow up to repeat code
+rm delete files
+rmdir delete directory 
+
+node.js: intermediate between server and user computer
+
+npm (Node Package Manager): use packages made by other people to save time
+To start "npm init", click enter for all (maybe can apply desc. author)
+Creates a package.json which lists all npm used
+To install: "npm install (name)"
+
+Quickstart npm: npm init -y
+
+Updating npm packages
+1. sudo npm install -g npm-check-updates
+2. ncu -u
+3. npm install
+
+Uninstall npm
+1. npm uninstall
+
+Express: Framework to add extra features for web developers/reduce code to write
+
+Steps to build server
+1. mkdir
+2. cd into dir
+3. touch server.js
+4. npm init (open json file)
+5. Atom . (or name of file)
+6. npm install i express
+
+nodemon: npm install -g nodemon: will autorun when code is saved
+1. nodemon server.js
+2. Code will run continuously until ctrl c
+
+BETTER WAY
+1. npm i --save-dev nodemon
+2. Go to json and add 
+  "scripts": {
+    "devStart": "nodemon index.js"
+  },
+
+body-parser
+npm package to change data into usable data
+npm install body-parser
+e.g const bodyParser= require("body-parser");
+app.use(bodyParser.urlencoded({extended:true})); //retrieve html forms, extended true to post nested objects
+var num1= Number(req.body.num1); //to use the data in html num1. Number change text to number
+
+Boilerplate for node.js (build a server)
+//jshint esversion:6
+const express = require ("express"); //to require express and log into json file
+const bodyParser= require ("body-parser"); //to parse incoming requests
+const request= require ("request"); //to make http calls
+const https= require("https"); // to get API requests
+const app= express(); //function to represent express
+app.use(express.static("public"));//to allow local 3000 to use css and image stored in public folder. Without it the localhost cannot find
+app.use(bodyParser.urlencoded({extended:true}));
+app.get("/", function(req,res){// "/" root address (can change to route e.g /contact, callback function
+// to access the server side  
+const url="https://url" //method to call API. Use https:// to change to url form
+  https.get(url, function(response){
+    console.log(response);
+  })
+  res.send("Sever is up and running"); //send response on port
+});
+app.post("/", function(req,res){ //to process incoming data
+res.send("Thanks for the post");
+});
+app.listen(3000, function (){ //listen to any http port that gets request
+  console.log("Server is running on port 3000"); //to check on Hyper if server is running
+});
+
+Other node commands
+res.write(): for multiple commands. End with res.send()
+res.sendFile(__dirname+"/html"): to route to another directory
+
+
+API (application programming interfaces)
+-get info from another service
+-Endpoints, Paths, Parameters,
+
+JSON (JavaScript Object Notation) format for info
+
+Using heroku to deploy/make changes
+1. Enter app directory
+2. touch Procfile
+3. web:node app.js
+(Repeat 4 to 6 for changes)
+git init
+4. git add .
+5. git commit -m "Initial commit"
+6. git push heroku master
+7. Make sure logged into heroku
+
+Git (working directory>staging area>local repository)
+git init: to start
+git status: to find out the status in staging area
+git add (one by one), git add . (for all remaining files): to add into staging area
+git commit -m "Describe the changes"
+git log: To find commited changes
+git diff: to find out what changes made
+git checkout
+
+Github (for a remote repository)
+git remote add origin https://github.com/formorri/Story.git
+git push -u origin main
+touch .gitignore: makes hidden file
+git rm --cached -r .: remove cached items in recursive all (.)
+git branch: open new branch/to check which branch
+Git checkout -b (name): make branch and cd into branch
+git checkout (name): change branch
+git merge (name): merge branch into master
+git log --oneline: easy reading for diff versions of commits
+git branch -d (name): delete branch (but only do it after checkout to main)
+
+var in anything in curly braces (for, if/else, while) it is a global value while let & const is local value.
+So avoid using var. Replace with let
+
+To start mongodb server
+1. mongosh
+
+React
+1. npx create-react-app ./
+2. npm i -s node-sass
+2. Rafce shortcut to create boilerplate 
+
+Webpack setup
+1. npm i -D webpack webpack-cli webpack-dev-server
+2. npm i -D babel-loader @babel/core @babel/preset-env
+3. npm i -D css-loader mini-css-extract-plugin
+4. npm i -D sass sass-loader postcss postcss-preset-env postcss-loader
+5. npm i react react-dom 
+npm I --save react-router-dom
+6. npm i -D @babel/preset-react
+7. npm i -D html-webpack-plugin
+8. npm i -D clean-webpack-plugin
+9. npm install -D @pmmmwh/react-refresh-webpack-plugin react-refresh
+10. npm install @mui/material @emotion/react @emotion/styled @mui/icons-material
+11. npm install jquery --save
+12. npm install three @react-three/fiber @react-three/drei
+13. npm install -g gltf-pipeline 
+> run gltf-pipeline -i scene.gltf -o rnm.gltf -d 
+> npx gltfjsx rnm.gltf
+14. npm i gsap
+15. npm install dotenv-webpack --save-dev
+npm i @sanity/client @sanity/image-url framer-motion react-icons
+npm i react-tooltip
+
+
+Sanity
+1. sanity start
+2. sanity manage
+
+
+--------CSS Tricks-------
+1. Centering
+
+OPTION 1: FLEXBOX
+display: flex;
+align-items: center;
+justify-content: center;
+
+OPTION 2: ABSOLUTE
+position: absolute;
+top: 50%;
+width: 100%;
+transform: translateY(-50%);
+
+OPTION 3: GRID
+display: grid;
+place-items: center;
